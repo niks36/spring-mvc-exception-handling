@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.exception.CustomerNotFoundException;
+import com.example.demo.exception.EmployeeNotFoundException;
 import com.example.demo.exception.OrderNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +28,15 @@ public class DemoController {
     ResponseEntity<String> getOrder(@PathVariable String id) {
         if (id.equals("10")) {
             throw new OrderNotFoundException();
+        }
+        return new ResponseEntity<String>("Success", HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping(path = "/employee/{id}")
+    public @ResponseBody
+    ResponseEntity<String> getEmployee(@PathVariable String id) {
+        if (id.equals("10")) {
+            throw new EmployeeNotFoundException();
         }
         return new ResponseEntity<String>("Success", HttpStatus.ACCEPTED);
     }
