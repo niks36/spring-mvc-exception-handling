@@ -30,4 +30,4 @@ build/
 gradle/
 gradlew
 gradlew.bat
-src/
+spring-mvc-exception-handling.iml
